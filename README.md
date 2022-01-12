@@ -29,3 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## API 
 [API](https://api.npoint.io/5e060fbf81b1ef728346)
+[view](https://www.npoint.io/docs/5e060fbf81b1ef728346)
