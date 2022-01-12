@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'material-icons/iconfont/material-icons.css';
+html, body { height: 100%; }
+body{
+    background-color: rgb(238, 238, 238);
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.menu{
+    background-color: #FFF;
+}
+
+.icon-with-card{
+    background-color: #0C8EA1;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    color: #FFF;
+    width: 5rem !important;
+    height: 5rem !important;
+    position: relative;
+    border-radius: 10px;
+    top: -15px;
+    left: 10px;
+    font-size: 4.5rem;
+}
+
+.icon_snippet{
+    color: rgb(68, 68, 68);
+    position: relative;
+    top: -1rem;
+    left: 1rem;
+    font-size: 2rem;
+}
+
+@media (max-width: 730px) {
+    .no-mobile{
+        display:none !important;
+    }
+}

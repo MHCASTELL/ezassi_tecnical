@@ -1,0 +1,99 @@
+
+  <mat-toolbar class="menu">
+    <div class="row" style="width: 100% !important;">
+      <div class="col-6">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+        </button>
+        <span>My App</span>
+      </div>
+      <div class="col-6 no-mobile" >
+          <div class="row">
+            <div class="col-4">
+              <div id="wrap">
+                <input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">
+                </div>
+            </div>
+            <div class="col-8">
+              <div class="row">
+                <div  class="col-4">
+                  <mat-icon> message</mat-icon>
+                </div>
+                <div  class="col-4">
+                  <mat-icon>notification_important</mat-icon>
+                </div>
+                <div  class="col-4">
+                  <mat-icon>supervised_user_circle</mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</mat-toolbar>
+
+<div class="row" >
+  <div class="col-12 content" *ngFor="let item of posts; index as i;">
+    <div class="my-card__media mdc-card__media mdc-card__media--16-9 card-ezassi">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon-with-card">lightbulb</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon_snippet" >description</mat-icon>
+      <div class="row info">
+        <div class="col-md-6 col-sm">
+          <div class="row" style="width: 100%;">
+            <div class="col-md-6 col-sm" >
+              <img src="{{item.imagen}}" width="90%" height="auto" style="margin: 10% 10% 10% 10%;"/>
+            </div>
+            <div class="col-md-6 col-sm" >
+              <b>Idea Summary</b>
+              <p>
+                {{item.idea_sumary}}
+              </p>
+            </div>
+            <div class="col-md-12 col-sm-12" >
+              <div class="row" style="width: 90%; margin-left: 10%;">
+                <div class="col">
+                  <p><b>Assignees</b></p>
+                  <p>
+                    {{item.assignees}}
+                  </p>
+                </div>
+                <div class="col">
+                  <p><b>Workflow</b></p>
+                  <p>{{item.workflow}}</p>
+                </div>
+                <div class="col">
+                  <p><b>Review Score</b></p>
+                  <p>
+                    <span style="text-align: center; background-color: rgb(187, 154, 8);  color: white;  margin-left: 20px 20px 20px 20px; font-size: 12px; border-radius: 5px;">
+                      <ng-container *ngIf="item.review_score === 0"> --- </ng-container>
+                      <ng-container *ngIf="item.review_score != 0"> {{item.review_score}} </ng-container>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm">
+          <div class="mdc-card__media-content" style="text-align: right; margin-right: 10%;">
+            <p>
+              Posted <b><a href="#" style="text-decoration:none;">{{item.postedby.user}}</a></b> 
+              <span *ngFor="let score of  [1,2,3,4,5]; index as i;" >
+                <mat-icon aria-hidden="false" aria-label="Example home icon" style="color: rgb(187, 154, 8); margin-top: 1rem;" >
+                  <ng-container *ngIf="i < (item.postedby.score - 1)">star</ng-container>
+                  <ng-container *ngIf="i === (item.postedby.score - 1)">star</ng-container>
+                  <ng-container *ngIf="i > (item.postedby.score - 1)"> star_border</ng-container>
+                </mat-icon>
+              </span>
+            </p>
+            <p>
+              <mat-icon aria-hidden="false" aria-label="Example home icon" >calendar_today</mat-icon>
+              {{item.postedby.date}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
